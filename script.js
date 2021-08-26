@@ -31,7 +31,7 @@ function getPlayerChoice() {
 }
 
 function makeRandomComputerChoice() {
-  document.querySelector(".scissors").removeEventListener;
+  //reset match status
   console.log("makeRandomComputerChoice");
   let random = Math.floor(Math.random() * computerOptions.length);
   console.log("computer: " + (random, computerOptions[random]));
@@ -41,10 +41,9 @@ function makeRandomComputerChoice() {
 
 function showAnimations() {
   console.log("showAnimations");
-  determineWinner();
-  if (userFist == "rock") {
-    console.log("rock is shown");
-  }
+  document.querySelector("#player1").classList.add("shake");
+  document.querySelector("#player2").classList.add("shake");
+  document.querySelector("#player1").addEventListener("animationend", determineWinner);
 }
 
 function determineWinner() {
@@ -93,14 +92,24 @@ function determineWinner() {
 function showWin() {
   console.log("showWin");
   document.querySelector("#win").classList.remove("hidden");
+  reset();
 }
 
 function showLose() {
   console.log("showLose");
   document.querySelector("#lose").classList.remove("hidden");
+  reset();
 }
 
 function showDraw() {
   console.log("showDraw");
   document.querySelector("#draw").classList.remove("hidden");
+  reset();
+}
+
+function reset() {
+  document.querySelector("#player1").classList.remove("shake");
+  document.querySelector("#player2").classList.remove("shake");
+  document.querySelectorAll(".state").forEach((el) => el.classList.add("hidden"));
+  getPlayerChoice();
 }
