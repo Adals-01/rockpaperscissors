@@ -33,6 +33,8 @@ function getPlayerChoice() {
 function makeRandomComputerChoice() {
   //reset match status
   document.querySelectorAll(".state").forEach((el) => el.classList.add("hidden"));
+  document.querySelector("#player1").classList.value = "player";
+  document.querySelector("#player2").classList.value = "player";
   console.log("makeRandomComputerChoice");
   let random = Math.floor(Math.random() * computerOptions.length);
   console.log("computer: " + (random, computerOptions[random]));
@@ -56,11 +58,20 @@ function determineWinner() {
     console.log("it's a " + winner);
   }
 
-  //display hand
+  //display user hand
   if (userFist === "paper") {
     document.querySelector("#player1").classList.add("player", "paper");
   }
+  if (userFist === "scissors") {
+    document.querySelector("#player1").classList.add("player", "scissors");
+  }
 
+  if (computerFist === "paper") {
+    document.querySelector("#player2").classList.add("player", "paper");
+  }
+  if (computerFist === "scissors") {
+    document.querySelector("#player2").classList.add("player", "scissors");
+  }
   //user wins
 
   if (userFist === "rock" && computerFist === "scissors") {
@@ -78,12 +89,15 @@ function determineWinner() {
   //user loses
 
   if (userFist === "rock" && computerFist === "paper") {
+    winner = "computer";
   }
 
   if (userFist === "paper" && computerFist === "scissors") {
+    winner = "computer";
   }
 
   if (userFist === "scissors" && computerFist === "rock") {
+    winner = "computer";
   }
 
   if (winner === "computer") {
