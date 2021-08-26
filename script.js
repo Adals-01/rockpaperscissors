@@ -32,6 +32,7 @@ function getPlayerChoice() {
 
 function makeRandomComputerChoice() {
   //reset match status
+  document.querySelectorAll(".state").forEach((el) => el.classList.add("hidden"));
   console.log("makeRandomComputerChoice");
   let random = Math.floor(Math.random() * computerOptions.length);
   console.log("computer: " + (random, computerOptions[random]));
@@ -53,6 +54,11 @@ function determineWinner() {
   if (userFist === computerFist) {
     winner = "tie";
     console.log("it's a " + winner);
+  }
+
+  //display hand
+  if (userFist === "paper") {
+    document.querySelector("#player1").classList.add("player", "paper");
   }
 
   //user wins
@@ -110,6 +116,6 @@ function showDraw() {
 function reset() {
   document.querySelector("#player1").classList.remove("shake");
   document.querySelector("#player2").classList.remove("shake");
-  document.querySelectorAll(".state").forEach((el) => el.classList.add("hidden"));
+
   getPlayerChoice();
 }
