@@ -43,7 +43,6 @@ function showAnimations() {
   console.log("showAnimations");
   determineWinner();
   if (userFist == "rock") {
-    document.querySelector(".player1").classList.add(".rock");
     console.log("rock is shown");
   }
 }
@@ -60,38 +59,26 @@ function determineWinner() {
   //user wins
 
   if (userFist === "rock" && computerFist === "scissors") {
-    winner = "computer";
     winner = "user";
-    console.log("the winner is " + winner);
   }
 
   if (userFist === "paper" && computerFist === "rock") {
-    winner = "computer";
     winner = "user";
-    console.log("the winner is " + winner);
   }
 
   if (userFist === "scissors" && computerFist === "paper") {
-    winner = "computer";
     winner = "user";
-    console.log("the winner is " + winner);
   }
 
   //user loses
 
   if (userFist === "rock" && computerFist === "paper") {
-    winner = "computer";
-    console.log("the winner is " + winner);
   }
 
   if (userFist === "paper" && computerFist === "scissors") {
-    winner = "computer";
-    console.log("the winner is " + winner);
   }
 
   if (userFist === "scissors" && computerFist === "rock") {
-    winner = "computer";
-    console.log("the winner is " + winner);
   }
 
   if (winner === "computer") {
