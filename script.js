@@ -1,6 +1,6 @@
 "use strict";
 window.addEventListener("DOMContentLoaded", start);
-let winner = "computer";
+let winner;
 let tie = "tied";
 let userFist;
 let computerFist;
